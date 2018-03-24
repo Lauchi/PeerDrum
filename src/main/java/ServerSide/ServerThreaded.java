@@ -1,32 +1,24 @@
-package SocketConnector;
+package ServerSide;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketAddress;
 
-/**
- * threaded server for var.sockets.tcp.echo Echo service. waits for the next
- * client to connect, creates thread and handles connection in concurrently:
- * sends greeting message to client, reads line by line from client and sends it
- * back adding "echo: " in front of each line until connection is closed by
- * client.
- * 
- * @author Sandro Leuchter
- *
- */
-public class PeerDrumServerSocket extends Thread {
+public class ServerThreaded {
+
 	private int port;
 
-	public PeerDrumServerSocket(int port) {
+
+	public ServerThreaded(int port) {
 		this.port = port;
 	}
 
-	@Override
-	public void run() {
-		try (java.net.ServerSocket serverSocket = new java.net.ServerSocket(port)) {
+	public void start() {
+		try (ServerSocket serverSocket = new ServerSocket(port)) {
 			System.out.println("EchoServer (threaded) auf " + serverSocket.getLocalSocketAddress() + " gestartet ...");
 			while (true) {
 				Socket socket = serverSocket.accept();
