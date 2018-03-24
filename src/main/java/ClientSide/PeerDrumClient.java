@@ -26,13 +26,12 @@ public class PeerDrumClient {
         this.cliendId = cliendId;
         this.serverIp = serverIp;
         this.serverPort = serverPort;
-        // Layout GUI
+
         messageArea.setEditable(false);
         frame.getContentPane().add(button, "North");
         frame.getContentPane().add(new JScrollPane(messageArea), "Center");
         frame.pack();
 
-        // Add Listeners
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // hier domain rueber
@@ -42,20 +41,16 @@ public class PeerDrumClient {
     }
 
     public void run() throws IOException {
-
-        // Make connection and initialize streams
         String serverAddress = this.serverIp;
         Socket socket = new Socket(serverAddress, this.serverPort);
         in = new BufferedReader(new InputStreamReader(
                 socket.getInputStream()));
         out = new PrintWriter(socket.getOutputStream(), true);
 
-        // Process all messages from server, according to the protocol.
         while (true) {
             String line = in.readLine();
-            if (line.startsWith("SUBMITNAME")) {
+            if (line.startsWith("SUBMIT_ID")) {
                 out.println(this.cliendId);
-            } else if (line.startsWith("NAMEACCEPTED")) {
             } else if (line.startsWith("MESSAGE")) {
                 messageArea.append(line.substring(8) + "\n");
             }
