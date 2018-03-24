@@ -29,50 +29,22 @@ import java.util.HashSet;
  */
 public class PeerDrumServer {
 
-	/**
-	 * The port that the server listens on.
-	 */
 	private static final int PORT = 9001;
 
-	/**
-	 * The set of all names of clients in the chat room.  Maintained
-	 * so that we can check that new clients are not registering name
-	 * already in use.
-	 */
 	private static HashSet<String> names = new HashSet<String>();
 
-	/**
-	 * The set of all the print writers for all the clients.  This
-	 * set is kept so we can easily broadcast messages.
-	 */
 	private static HashSet<PrintWriter> writers = new HashSet<PrintWriter>();
 
-	/**
-	 * A handler thread class.  Handlers are spawned from the listening
-	 * loop and are responsible for a dealing with a single client
-	 * and broadcasting its messages.
-	 */
 	public static class Handler extends Thread {
 		private String name;
 		private Socket socket;
 		private BufferedReader in;
 		private PrintWriter out;
 
-		/**
-		 * Constructs a handler thread, squirreling away the socket.
-		 * All the interesting work is done in the run method.
-		 */
 		public Handler(Socket socket) {
 			this.socket = socket;
 		}
 
-		/**
-		 * Services this thread's client by repeatedly requesting a
-		 * screen name until a unique one has been submitted, then
-		 * acknowledges the name and registers the output stream for
-		 * the client in a global set, then repeatedly gets inputs and
-		 * broadcasts them.
-		 */
 		public void run() {
 			try {
 

@@ -10,22 +10,6 @@ import java.net.Socket;
 
 import javax.swing.*;
 
-/**
- * A simple Swing-based client for the chat server.  Graphically
- * it is a frame with a text field for entering messages and a
- * textarea to see the whole dialog.
- *
- * The client follows the Chat Protocol which is as follows.
- * When the server sends "SUBMITNAME" the client replies with the
- * desired screen name.  The server will keep sending "SUBMITNAME"
- * requests as long as the client submits screen names that are
- * already in use.  When the server sends a line beginning
- * with "NAMEACCEPTED" the client is now allowed to start
- * sending the server arbitrary strings to be broadcast to all
- * chatters connected to the server.  When the server sends a
- * line beginning with "MESSAGE " then all characters following
- * this string should be displayed in its message area.
- */
 public class PeerDrumClient {
 
     BufferedReader in;
@@ -35,11 +19,13 @@ public class PeerDrumClient {
     JTextArea messageArea = new JTextArea(8, 40);
     private String cliendId;
     private String serverIp;
+    private int serverPort;
 
-    public PeerDrumClient(String cliendId, String serverIp) {
+    public PeerDrumClient(String cliendId, String serverIp, int serverPort) {
 
         this.cliendId = cliendId;
         this.serverIp = serverIp;
+        this.serverPort = serverPort;
         // Layout GUI
         messageArea.setEditable(false);
         frame.getContentPane().add(button, "North");
@@ -48,25 +34,18 @@ public class PeerDrumClient {
 
         // Add Listeners
         button.addActionListener(new ActionListener() {
-            /**
-             * Responds to pressing the enter key in the textfield by sending
-             * the contents of the text field to the server.    Then clear
-             * the text area in preparation for the next message.
-             */
             public void actionPerformed(ActionEvent e) {
+                // hier domain rueber
                 out.println("Lul");
             }
         });
     }
 
-    /**
-     * Connects to the server then enters the processing loop.
-     */
     public void run() throws IOException {
 
         // Make connection and initialize streams
         String serverAddress = this.serverIp;
-        Socket socket = new Socket(serverAddress, 9001);
+        Socket socket = new Socket(serverAddress, this.serverPort);
         in = new BufferedReader(new InputStreamReader(
                 socket.getInputStream()));
         out = new PrintWriter(socket.getOutputStream(), true);
