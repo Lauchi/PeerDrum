@@ -1,49 +1,32 @@
 package SocketConnector;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 public class PeerDrumClient {
 
-	private Socket socket;
-	private Reader sendQuue = null;
+	private final String host;
+	private final int port;
 
 	public PeerDrumClient(String host, int port) {
-		try {
-			socket = new Socket(host, port);
-			sendQuue = new InputStreamReader(null);
-			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-			BufferedReader stdin = new BufferedReader(sendQuue);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+		this.host = host;
+		this.port = port;
 	}
 
-	/*
+	public void sendText(String msg) {
 
+		try (Socket socket = new Socket(this.host, this.port);
+			BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+			BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in))) {
 
+			out.println(msg);
+			System.out.println(in.readLine());
 
-		try (Socket {
-
-			// Begrüßung vom Server empfangen und auf Konsole ausgeben
-			String msg = in.readLine();
-			System.out.println(msg);
-
-			// Zeile von Konsole einlesen, an Server senden und Antwort von
-			// Server auf Konsole ausgeben, bis eingegebene Zeile == "q"
-			while (true) {
-				System.out.print(">> ");
-				String line = stdin.readLine();
-				if ("q".equals(line)) {
-					break;
-				}
-				out.println(line);
-				System.out.println(in.readLine());
-			}
 		} catch (Exception e) {
 			System.err.println(e);
 		}
-	}*/
+	}
 }

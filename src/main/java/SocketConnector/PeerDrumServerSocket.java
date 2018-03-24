@@ -17,27 +17,15 @@ import java.net.SocketAddress;
  * @author Sandro Leuchter
  *
  */
-public class PeerDrumServerSocket {
-	/**
-	 * port on which this service is currently listening on localhost
-	 */
+public class PeerDrumServerSocket extends Thread {
 	private int port;
 
-	/**
-	 * the only constructor for this class
-	 * 
-	 * @param port
-	 *            port on which this service will be listening on localhost
-	 */
 	public PeerDrumServerSocket(int port) {
 		this.port = port;
 	}
 
-	/**
-	 * creates server socket on localhost:port, infinitely handles connections
-	 * to clients concurrently
-	 */
-	public void start() {
+	@Override
+	public void run() {
 		try (java.net.ServerSocket serverSocket = new java.net.ServerSocket(port)) {
 			System.out.println("EchoServer (threaded) auf " + serverSocket.getLocalSocketAddress() + " gestartet ...");
 			while (true) {
@@ -49,32 +37,13 @@ public class PeerDrumServerSocket {
 		}
 	}
 
-	/**
-	 * Each connection is handled with an instance of this class.
-	 */
 	private class EchoThread extends Thread {
-		/**
-		 * TCP connection to client
-		 */
 		private Socket socket;
 
-		/**
-		 * the only constructor for this class
-		 * 
-		 * @param socket
-		 *            the individual socket that the server created on accepting
-		 *            a client that this EchoThread instance will be
-		 *            communicating with
-		 */
 		public EchoThread(Socket socket) {
 			this.socket = socket;
 		}
 
-		/**
-		 * defines the behavior of this Thread instance, will be executed
-		 * concurrently if start() is called on instance
-		 * 
-		 */
 		@Override
 		public void run() {
 			SocketAddress socketAddress = socket.getRemoteSocketAddress();
@@ -93,17 +62,5 @@ public class PeerDrumServerSocket {
 				System.out.println("Verbindung zu " + socketAddress + " abgebaut");
 			}
 		}
-	}
-
-	/**
-	 * main method: entrypoint to run service
-	 * 
-	 * @param args
-	 *            args[0] must be the port number of the server (int); rest of
-	 *            args is ignored
-	 */
-	public static void main(String[] args) {
-		int port = 8081;
-		new PeerDrumServerSocket(port).start();
 	}
 }
