@@ -85,7 +85,7 @@ public class PeerDrumServer {
 						return;
 					}
 					for (PrintWriter writer : writers) {
-						writer.println("MESSAGE " + name + ": " + input);
+						writer.println("MESSAGE " + input);
 					}
 				}
 			} catch (IOException e) {
