@@ -17,10 +17,6 @@ public class DrumTrack {
         return steps;
     }
 
-    public int getSize() {
-        return steps.size();
-    }
-
     public void toggleStep(int stepNo) {
         this.steps.get(stepNo).isSet = !this.steps.get(stepNo).isSet;
     }

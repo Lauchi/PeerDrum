@@ -92,6 +92,6 @@ public class PeerDrumClient implements TimerListener {
 
     @Override
     public void start() {
-        out.println("START");
+        //out.println("START");
     }
 }
