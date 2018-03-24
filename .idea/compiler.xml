@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Peerdrum" />
+        <module name="PeerDrum" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Peerdrum" target="1.5" />
+      <module name="PeerDrum" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
