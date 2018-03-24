@@ -33,17 +33,11 @@ public class PeerDrumClient {
     public JFrame frame = new JFrame("Chatter");
     JButton button = new JButton("Send");
     JTextArea messageArea = new JTextArea(8, 40);
+    private String cliendId;
 
-    /**
-     * Constructs the client by laying out the GUI and registering a
-     * listener with the textfield so that pressing Return in the
-     * listener sends the textfield contents to the server.  Note
-     * however that the textfield is initially NOT editable, and
-     * only becomes editable AFTER the client receives the NAMEACCEPTED
-     * message from the server.
-     */
-    public PeerDrumClient() {
+    public PeerDrumClient(String cliendId) {
 
+        this.cliendId = cliendId;
         // Layout GUI
         messageArea.setEditable(false);
         frame.getContentPane().add(button, "North");
@@ -75,17 +69,6 @@ public class PeerDrumClient {
     }
 
     /**
-     * Prompt for and return the desired screen name.
-     */
-    private String getName() {
-        return JOptionPane.showInputDialog(
-                frame,
-                "Choose a screen name:",
-                "Screen name selection",
-                JOptionPane.PLAIN_MESSAGE);
-    }
-
-    /**
      * Connects to the server then enters the processing loop.
      */
     public void run() throws IOException {
@@ -101,7 +84,7 @@ public class PeerDrumClient {
         while (true) {
             String line = in.readLine();
             if (line.startsWith("SUBMITNAME")) {
-                out.println(getName());
+                out.println(this.cliendId);
             } else if (line.startsWith("NAMEACCEPTED")) {
             } else if (line.startsWith("MESSAGE")) {
                 messageArea.append(line.substring(8) + "\n");
