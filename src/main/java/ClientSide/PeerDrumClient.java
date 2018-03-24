@@ -8,11 +8,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 /**
  * A simple Swing-based client for the chat server.  Graphically
@@ -35,7 +31,7 @@ public class PeerDrumClient {
     BufferedReader in;
     PrintWriter out;
     public JFrame frame = new JFrame("Chatter");
-    JTextField textField = new JTextField(40);
+    JButton button = new JButton("Send");
     JTextArea messageArea = new JTextArea(8, 40);
 
     /**
@@ -49,22 +45,20 @@ public class PeerDrumClient {
     public PeerDrumClient() {
 
         // Layout GUI
-        textField.setEditable(false);
         messageArea.setEditable(false);
-        frame.getContentPane().add(textField, "North");
+        frame.getContentPane().add(button, "North");
         frame.getContentPane().add(new JScrollPane(messageArea), "Center");
         frame.pack();
 
         // Add Listeners
-        textField.addActionListener(new ActionListener() {
+        button.addActionListener(new ActionListener() {
             /**
              * Responds to pressing the enter key in the textfield by sending
              * the contents of the text field to the server.    Then clear
              * the text area in preparation for the next message.
              */
             public void actionPerformed(ActionEvent e) {
-                out.println(textField.getText());
-                textField.setText("");
+                out.println("Lul");
             }
         });
     }
@@ -109,7 +103,6 @@ public class PeerDrumClient {
             if (line.startsWith("SUBMITNAME")) {
                 out.println(getName());
             } else if (line.startsWith("NAMEACCEPTED")) {
-                textField.setEditable(true);
             } else if (line.startsWith("MESSAGE")) {
                 messageArea.append(line.substring(8) + "\n");
             }
