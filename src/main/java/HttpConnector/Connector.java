@@ -1,8 +1,9 @@
 package HttpConnector;
 
 import Domain.DrumSet;
-import com.sun.security.ntlm.Server;
-import org.zeromq.ZMQ;
+import net.jxta.discovery.DiscoveryService;
+import net.jxta.peergroup.PeerGroup;
+import net.jxta.protocol.ModuleImplAdvertisement;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -13,18 +14,20 @@ public class Connector {
     private Socket client;
     private BufferedReader in;
     private PrintWriter out;
+    private PeerGroup netPeerGroup;
+    private PeerGroup myPeerGroup;
+    private DiscoveryService discoveryService;
 
     public void SendDrumSet(DrumSet drumset) {
 
     }
 
     public void ConnetToNetwork() {
-        /*try
+        try
         {
             //We will create a new group based on the netPeerGroup so let's copy its
             //impl advertisement and modify it.
-            ModuleImplAdvertisement implAdv =
-                    netPeerGroup.getAllPurposePeerGroupImplAdvertisement();
+            ModuleImplAdvertisement implAdv = netPeerGroup.getAllPurposePeerGroupImplAdvertisement();
 
             myPeerGroup = netPeerGroup.newGroup(
                     null,               //Create a new group id for this group.
@@ -45,7 +48,6 @@ public class Connector {
             System.out.println("An error occurred");
             e.printStackTrace();
         }
-*/
 
     }
 }
