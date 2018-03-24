@@ -35,6 +35,14 @@ public class PeerDrumServer {
 					if (input == null) {
 						return;
 					}
+
+					if (input.startsWith("START")) {
+						for (PrintWriter writer : writers) {
+							writer.println("START");
+						}
+						return;
+					}
+
 					for (PrintWriter writer : writers) {
 						writer.println("MESSAGE " + input);
 					}

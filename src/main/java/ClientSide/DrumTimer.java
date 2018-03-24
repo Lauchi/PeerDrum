@@ -10,7 +10,7 @@ public class DrumTimer extends Thread {
     private int tick;
 
     public DrumTimer(double bpm) {
-        this.bpmToTime = bpm / 60.0 * 1000000000.0;
+        this.bpmToTime = 60.0 / bpm * 1000000000.0;
         tick = 0;
         startTime = System.nanoTime();
     }
