@@ -1,8 +1,9 @@
+
 import ClientSide.PeerDrumClient;
 
 import javax.swing.*;
 
-public class ClientMain {
+public class ClientMain2 {
 
 
 	/**
