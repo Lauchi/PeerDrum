@@ -15,11 +15,5 @@
             <version>20170516</version>
         </dependency>
 
-        <!-- ZMQ lib -->
-        <dependency>
-            <groupId>org.zeromq</groupId>
-            <artifactId>jeromq</artifactId>
-            <version>0.4.2</version>
-        </dependency>
     </dependencies>
 </project>
