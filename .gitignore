@@ -1,0 +1,6 @@
+/target/
+
+# General Mac Os
+.DS_Store
+.AppleDouble
+.LSOverride
