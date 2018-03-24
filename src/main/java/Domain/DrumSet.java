@@ -8,9 +8,9 @@ public class DrumSet {
 
     public DrumSet() {
         tracks = new ArrayList<>();
-        tracks.add(new DrumTrack(1));
-        tracks.add(new DrumTrack(2));
-        tracks.add(new DrumTrack(3));
-        tracks.add(new DrumTrack(4));
+        tracks.add(new DrumTrack());
+        tracks.add(new DrumTrack());
+        tracks.add(new DrumTrack());
+        tracks.add(new DrumTrack());
     }
 }

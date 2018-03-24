@@ -1,5 +1,9 @@
 package ClientSide;
 
+import Domain.DrumSet;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -21,7 +25,7 @@ public class PeerDrumClient {
     private int serverPort;
 
     public PeerDrumClient(String serverIp, int serverPort) {
-this.serverIp = serverIp;
+        this.serverIp = serverIp;
         this.serverPort = serverPort;
 
         messageArea.setEditable(false);
@@ -31,8 +35,14 @@ this.serverIp = serverIp;
 
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // hier domain rueber
-                out.println("Lul");
+                DrumSet drumSet = new DrumSet();
+                ObjectMapper mapper = new ObjectMapper();
+                try {
+                    String json = mapper.writeValueAsString(drumSet);
+                    out.println(json);
+                } catch (JsonProcessingException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
     }
