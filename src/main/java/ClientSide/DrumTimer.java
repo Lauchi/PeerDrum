@@ -3,13 +3,15 @@ package ClientSide;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DrumTimer implements Runnable{
-    private double timerTrigger;
+public class DrumTimer extends Thread {
+    private double bpmToTime;
     private List<TimerListener> listeners = new ArrayList<>();
     long startTime;
+    private int tick;
 
     public DrumTimer(double bpm) {
-        this.timerTrigger = 1000 / bpm;
+        this.bpmToTime = bpm / 60.0 * 1000000000.0;
+        tick = 0;
         startTime = System.nanoTime();
     }
 
@@ -20,8 +22,18 @@ public class DrumTimer implements Runnable{
     @Override
     public void run() {
         while (true) {
-            if (startTime + System.nanoTime() > this.timerTrigger) {
+            long timeElapsed = System.nanoTime() - startTime;
+            if (timeElapsed > this.bpmToTime) {
+                for (TimerListener listener : listeners) {
+                    listener.tick((this.tick ++) % 16);
+                }
 
+                this.startTime = System.nanoTime();
+                if (tick % 16 == 0) {
+                    for (TimerListener listener : listeners) {
+                        listener.start();
+                    }
+                }
             }
         }
     }

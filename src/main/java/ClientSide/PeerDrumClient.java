@@ -1,6 +1,9 @@
 package ClientSide;
 
 import Domain.DrumSet;
+import Domain.DrumTrack;
+import Domain.MidiSender;
+import Domain.TimeStep;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -11,11 +14,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.Date;
 
 import javax.swing.*;
 
-public class PeerDrumClient {
+public class PeerDrumClient implements TimerListener {
 
     BufferedReader in;
     PrintWriter out;
@@ -25,16 +27,18 @@ public class PeerDrumClient {
     private String serverIp;
     private int serverPort;
     private boolean isMaster;
-    DrumSet drumMachine = new DrumSet();
+    DrumSet drumSet = new DrumSet();
     private boolean isStarted;
     ObjectMapper objectMapper = new ObjectMapper();
     private long startTime;
-    DrumTimer timer = new DrumTimer(128);
+    DrumTimer timer = new DrumTimer(60);
+    private MidiSender midiSender;
 
     public PeerDrumClient(String serverIp, int serverPort, boolean isMaster) {
         this.serverIp = serverIp;
         this.serverPort = serverPort;
         this.isMaster = isMaster;
+        this.midiSender = new MidiSender();
 
         messageArea.setEditable(false);
         frame.getContentPane().add(button, "North");
@@ -52,6 +56,9 @@ public class PeerDrumClient {
                 }
             }
         });
+
+        timer.addListener(this);
+        timer.start();
     }
 
     public void run() throws IOException {
@@ -65,12 +72,27 @@ public class PeerDrumClient {
             String line = in.readLine();
             if (line.startsWith("MESSAGE")) {
                 messageArea.append(line.substring(8) + "\n");
-                this.drumMachine = objectMapper.readValue(line.substring(8), DrumSet.class);
+                this.drumSet = objectMapper.readValue(line.substring(8), DrumSet.class);
             } else if (line.startsWith("START")) {
                 this.isStarted = true;
                 long nanoTime = Long.parseLong(line.substring(6));
                 this.startTime = nanoTime;
             }
         }
+    }
+
+    @Override
+    public void tick(int timer) {
+
+        messageArea.append("Tick!\n");
+        for (DrumTrack drumTrack : this.drumSet.tracks) {
+            TimeStep timeStep = drumTrack.getSteps().get(timer);
+            midiSender.Send(timeStep);
+        }
+    }
+
+    @Override
+    public void start() {
+
     }
 }

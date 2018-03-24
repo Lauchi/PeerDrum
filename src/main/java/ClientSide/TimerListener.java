@@ -1,7 +1,6 @@
 package ClientSide;
 
 public interface TimerListener {
-    void tick();
+    void tick(int slot);
     void start();
-
 }
