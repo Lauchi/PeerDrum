@@ -29,12 +29,9 @@ public class PeerDrumClient implements TimerListener {
     private boolean isMaster;
     private long bpm;
     DrumSet drumSet = new DrumSet();
-    private boolean isStarted;
     ObjectMapper objectMapper = new ObjectMapper();
-    private long startTime;
     DrumTimer timer;
     private MidiSender midiSender;
-    private boolean sendStartBit;
 
     public PeerDrumClient(String serverIp, int serverPort, boolean isMaster, long bpm) {
         this.serverIp = serverIp;
@@ -43,8 +40,6 @@ public class PeerDrumClient implements TimerListener {
         this.bpm = bpm;
         this.timer = new DrumTimer(this.bpm);
         this.midiSender = new MidiSender();
-
-        sendStartBit = false;
 
         messageArea.setEditable(false);
         frame.getContentPane().add(button, "North");
@@ -76,25 +71,18 @@ public class PeerDrumClient implements TimerListener {
 
         while (true) {
             String line = in.readLine();
-            if (this.sendStartBit) {
-                out.println("START");
-                messageArea.append(line + "\n");
-                this.sendStartBit = false;
-            }
             if (line.startsWith("MESSAGE")) {
                 messageArea.append(line.substring(8) + "\n");
                 this.drumSet = objectMapper.readValue(line.substring(8), DrumSet.class);
             } else if (line.startsWith("START")) {
-                this.isStarted = true;
-                long nanoTime = Long.parseLong(line.substring(6));
-                this.startTime = nanoTime;
+                messageArea.append(line + "\n");
+                if (!this.isMaster) this.timer.resetStartTime();
             }
         }
     }
 
     @Override
     public void tick(int timer) {
-
         messageArea.append("Tick!\n");
         for (DrumTrack drumTrack : this.drumSet.tracks) {
             TimeStep timeStep = drumTrack.getSteps().get(timer);
@@ -104,6 +92,6 @@ public class PeerDrumClient implements TimerListener {
 
     @Override
     public void start() {
-        this.sendStartBit = true;
+        out.println("START");
     }
 }

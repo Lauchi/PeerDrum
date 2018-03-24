@@ -37,4 +37,9 @@ public class DrumTimer extends Thread {
             }
         }
     }
+
+    public void resetStartTime() {
+        this.startTime = System.nanoTime();
+        this.tick = 0;
+    }
 }
