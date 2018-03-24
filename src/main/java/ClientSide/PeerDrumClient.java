@@ -17,14 +17,11 @@ public class PeerDrumClient {
     public JFrame frame = new JFrame("Chatter");
     JButton button = new JButton("Send");
     JTextArea messageArea = new JTextArea(8, 40);
-    private String cliendId;
     private String serverIp;
     private int serverPort;
 
-    public PeerDrumClient(String cliendId, String serverIp, int serverPort) {
-
-        this.cliendId = cliendId;
-        this.serverIp = serverIp;
+    public PeerDrumClient(String serverIp, int serverPort) {
+this.serverIp = serverIp;
         this.serverPort = serverPort;
 
         messageArea.setEditable(false);
@@ -49,9 +46,7 @@ public class PeerDrumClient {
 
         while (true) {
             String line = in.readLine();
-            if (line.startsWith("SUBMIT_ID")) {
-                out.println(this.cliendId);
-            } else if (line.startsWith("MESSAGE")) {
+            if (line.startsWith("MESSAGE")) {
                 messageArea.append(line.substring(8) + "\n");
             }
         }

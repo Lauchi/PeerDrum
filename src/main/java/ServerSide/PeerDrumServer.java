@@ -28,20 +28,6 @@ public class PeerDrumServer {
 						socket.getInputStream()));
 				out = new PrintWriter(socket.getOutputStream(), true);
 
-				while (true) {
-					out.println("SUBMIT_ID");
-					name = in.readLine();
-					if (name == null) {
-						return;
-					}
-					synchronized (names) {
-						if (!names.contains(name)) {
-							names.add(name);
-							break;
-						}
-					}
-				}
-
 				writers.add(out);
 
 				while (true) {
@@ -56,9 +42,6 @@ public class PeerDrumServer {
 			} catch (IOException e) {
 				System.out.println(e);
 			} finally {
-				if (name != null) {
-					names.remove(name);
-				}
 				if (out != null) {
 					writers.remove(out);
 				}
