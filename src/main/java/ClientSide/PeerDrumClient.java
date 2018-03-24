@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Date;
 
 import javax.swing.*;
 
@@ -23,10 +24,17 @@ public class PeerDrumClient {
     JTextArea messageArea = new JTextArea(8, 40);
     private String serverIp;
     private int serverPort;
+    private boolean isMaster;
+    DrumSet drumMachine = new DrumSet();
+    private boolean isStarted;
+    ObjectMapper objectMapper = new ObjectMapper();
+    private long startTime;
+    DrumTimer timer = new DrumTimer(128);
 
-    public PeerDrumClient(String serverIp, int serverPort) {
+    public PeerDrumClient(String serverIp, int serverPort, boolean isMaster) {
         this.serverIp = serverIp;
         this.serverPort = serverPort;
+        this.isMaster = isMaster;
 
         messageArea.setEditable(false);
         frame.getContentPane().add(button, "North");
@@ -36,9 +44,8 @@ public class PeerDrumClient {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 DrumSet drumSet = new DrumSet();
-                ObjectMapper mapper = new ObjectMapper();
                 try {
-                    String json = mapper.writeValueAsString(drumSet);
+                    String json = objectMapper.writeValueAsString(drumSet);
                     out.println(json);
                 } catch (JsonProcessingException e1) {
                     e1.printStackTrace();
@@ -58,6 +65,11 @@ public class PeerDrumClient {
             String line = in.readLine();
             if (line.startsWith("MESSAGE")) {
                 messageArea.append(line.substring(8) + "\n");
+                this.drumMachine = objectMapper.readValue(line.substring(8), DrumSet.class);
+            } else if (line.startsWith("START")) {
+                this.isStarted = true;
+                long nanoTime = Long.parseLong(line.substring(6));
+                this.startTime = nanoTime;
             }
         }
     }
