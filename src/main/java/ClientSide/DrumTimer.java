@@ -29,11 +29,6 @@ public class DrumTimer extends Thread {
                 }
 
                 this.startTime = System.nanoTime();
-                if (tick % 16 == 0) {
-                    for (TimerListener listener : listeners) {
-                        listener.start();
-                    }
-                }
             }
         }
     }

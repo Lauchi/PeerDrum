@@ -23,6 +23,7 @@ public class PeerDrumClient implements TimerListener {
     PrintWriter out;
     public JFrame frame = new JFrame("Chatter");
     JButton button = new JButton("Send");
+    JButton buttonSync = new JButton("Sync");
     JTextArea messageArea = new JTextArea(8, 40);
     private String serverIp;
     private int serverPort;
@@ -43,6 +44,7 @@ public class PeerDrumClient implements TimerListener {
 
         messageArea.setEditable(false);
         frame.getContentPane().add(button, "North");
+        frame.getContentPane().add(buttonSync, "East");
         frame.getContentPane().add(new JScrollPane(messageArea), "Center");
         frame.pack();
 
@@ -55,6 +57,12 @@ public class PeerDrumClient implements TimerListener {
                 } catch (JsonProcessingException e1) {
                     e1.printStackTrace();
                 }
+            }
+        });
+
+        buttonSync.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                out.println("START");
             }
         });
 
@@ -88,10 +96,5 @@ public class PeerDrumClient implements TimerListener {
             TimeStep timeStep = drumTrack.getSteps().get(timer);
             midiSender.Send(timeStep);
         }
-    }
-
-    @Override
-    public void start() {
-        //out.println("START");
     }
 }
