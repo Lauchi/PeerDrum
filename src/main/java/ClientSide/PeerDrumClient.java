@@ -34,10 +34,12 @@ public class PeerDrumClient {
     JButton button = new JButton("Send");
     JTextArea messageArea = new JTextArea(8, 40);
     private String cliendId;
+    private String serverIp;
 
-    public PeerDrumClient(String cliendId) {
+    public PeerDrumClient(String cliendId, String serverIp) {
 
         this.cliendId = cliendId;
+        this.serverIp = serverIp;
         // Layout GUI
         messageArea.setEditable(false);
         frame.getContentPane().add(button, "North");
@@ -58,23 +60,12 @@ public class PeerDrumClient {
     }
 
     /**
-     * Prompt for and return the address of the server.
-     */
-    private String getServerAddress() {
-        return JOptionPane.showInputDialog(
-                frame,
-                "Enter IP Address of the Server:",
-                "Welcome to the Chatter",
-                JOptionPane.QUESTION_MESSAGE);
-    }
-
-    /**
      * Connects to the server then enters the processing loop.
      */
     public void run() throws IOException {
 
         // Make connection and initialize streams
-        String serverAddress = getServerAddress();
+        String serverAddress = this.serverIp;
         Socket socket = new Socket(serverAddress, 9001);
         in = new BufferedReader(new InputStreamReader(
                 socket.getInputStream()));
