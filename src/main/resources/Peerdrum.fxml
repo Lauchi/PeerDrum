@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1250.0" stylesheets="style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GridController">
+<AnchorPane prefHeight="600.0" prefWidth="1250.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GridController">
    <children>
       <SplitPane dividerPositions="0.21237458193979933" layoutX="237.0" layoutY="113.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -45,7 +45,10 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Label prefHeight="230.0" prefWidth="239.0" text="Drums" />
+                                    <Label prefHeight="230.0" prefWidth="239.0" styleClass="labeButton" text="KICK" />
+                                    <Label prefHeight="230.0" prefWidth="239.0" styleClass="labeButton" text="RIM" GridPane.rowIndex="2" />
+                                    <Label prefHeight="230.0" prefWidth="239.0" styleClass="labeButton" text="HH" GridPane.rowIndex="1" />
+                                    <Label prefHeight="230.0" prefWidth="239.0" styleClass="labeButton" text="RIDE" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
                            </children></AnchorPane>
@@ -73,8 +76,7 @@
                                                 <ToggleButton id="13" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="13" />
                                                 <ToggleButton id="14" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="14" />
                                                 <ToggleButton id="15" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="15" />
-
-                                                 <ToggleButton id="16" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                                <ToggleButton id="16" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                                                 <ToggleButton id="17" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                                 <ToggleButton id="18" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                                 <ToggleButton id="19" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="3" GridPane.rowIndex="1" />
@@ -91,8 +93,7 @@
                                                 <ToggleButton id="30" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="14" GridPane.rowIndex="1" />
                                                 <ToggleButton id="31" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="15" GridPane.rowIndex="1" />
                                                 <ToggleButton id="32" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-
-                                                 <ToggleButton id="33" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <ToggleButton id="33" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                                 <ToggleButton id="34" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                                 <ToggleButton id="35" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                                                 <ToggleButton id="36" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="4" GridPane.rowIndex="2" />
@@ -169,7 +170,7 @@
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -188,23 +189,23 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <Button id="48" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="0" GridPane.rowSpan="3" />
-                                                <Button id="49" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="1" GridPane.rowSpan="2" />
-                                                <Button id="50" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="2" GridPane.rowSpan="3" />
-                                                <Button id="51" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="3" GridPane.rowSpan="2" />
-                                                <Button id="52" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button3" GridPane.columnIndex="4" GridPane.rowSpan="3" />
-                                                <Button id="53" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="5" GridPane.rowSpan="3" />
-                                                <Button id="54" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="6" GridPane.rowSpan="2" />
-                                                <Button id="55" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="7" GridPane.rowSpan="3" />
-                                                <Button id="56" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="8" GridPane.rowSpan="2" />
-                                                <Button id="57" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="9" GridPane.rowSpan="3" />
-                                                <Button id="58" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="10" GridPane.rowSpan="2" />
-                                                <Button id="59" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="11" GridPane.rowSpan="3" />
-                                                <Button id="60" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="12" GridPane.rowSpan="3" />
-                                                <Button id="61" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="13" GridPane.rowSpan="2" />
-                                                <Button id="62" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="14" GridPane.rowSpan="3" />
-                                                <Button id="63" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="15" GridPane.rowSpan="2" />
-                                                <Button id="64" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="16" GridPane.rowSpan="3" />
+                                                <Button fx:id="48" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="0" GridPane.rowSpan="3" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="1" GridPane.rowSpan="2" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="2" GridPane.rowSpan="3" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="3" GridPane.rowSpan="2" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button3" GridPane.columnIndex="4" GridPane.rowSpan="3" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="5" GridPane.rowSpan="3" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="6" GridPane.rowSpan="2" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="7" GridPane.rowSpan="3" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="8" GridPane.rowSpan="2" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="9" GridPane.rowSpan="3" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="10" GridPane.rowSpan="2" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="11" GridPane.rowSpan="3" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="12" GridPane.rowSpan="3" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="13" GridPane.rowSpan="2" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="14" GridPane.rowSpan="3" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="15" GridPane.rowSpan="2" />
+                                                <Button mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="16" GridPane.rowSpan="3" />
                                              </children>
                                           </GridPane>
                                        </children>
