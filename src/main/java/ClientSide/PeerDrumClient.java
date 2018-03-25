@@ -5,14 +5,17 @@ import Domain.MidiSender;
 import Domain.TimeStep;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import gui.DrumSetListener;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
-public class PeerDrumClient extends Thread implements TimerListener {
+public class PeerDrumClient extends Thread implements TimerListener{
 
     BufferedReader in;
     PrintWriter out;
@@ -20,10 +23,11 @@ public class PeerDrumClient extends Thread implements TimerListener {
     private int serverPort;
     private boolean _isMaster;
     private long bpm;
-    DrumSet drumSet = new DrumSet();
+    public DrumSet drumSet = new DrumSet();
     ObjectMapper objectMapper = new ObjectMapper();
     DrumTimer timer;
     private MidiSender midiSender;
+    private List<DrumSetListener>listeners = new ArrayList<>();
 
     public PeerDrumClient(String serverIp, int serverPort, final boolean isMaster, long bpm) {
         this.serverIp = serverIp;
@@ -52,8 +56,12 @@ public class PeerDrumClient extends Thread implements TimerListener {
     }
 
     public void sync() {
-        if (_isMaster) out.println("START");
+        out.println("START");
         this.broadCastDrumSet();
+    }
+
+    public void addListener(DrumSetListener toAdd) {
+        listeners.add(toAdd);
     }
 
     @Override
@@ -69,6 +77,9 @@ public class PeerDrumClient extends Thread implements TimerListener {
                 if (line != null) {
                     if (line.startsWith("DRUMSET ")) {
                         this.drumSet = objectMapper.readValue(line.substring(8), DrumSet.class);
+                        for (DrumSetListener listener : listeners) {
+                            listener.updateDrumSet();
+                        }
                     } else if (line.startsWith("START")) {
                         this.timer.resetStartTime();
                     }
@@ -87,4 +98,6 @@ public class PeerDrumClient extends Thread implements TimerListener {
             midiSender.Send(timeStep, i);
         }
     }
+
+
 }

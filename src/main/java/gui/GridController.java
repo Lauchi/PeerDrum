@@ -1,6 +1,9 @@
 package gui;
 
 import ClientSide.PeerDrumClient;
+import Domain.DrumSet;
+import Domain.DrumTrack;
+import Domain.TimeStep;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -8,7 +11,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.GridPane;
 
 
-public class GridController {
+public class GridController implements DrumSetListener {
 	
 	@FXML
 	private GridPane panelGrid;
@@ -22,6 +25,7 @@ public class GridController {
     private void initialize() {
 		client = new PeerDrumClient("127.0.0.1", 9001, false, 128);
 		client.start();
+		client.addListener(this);
 	}
     
 	/**
@@ -36,12 +40,23 @@ public class GridController {
 			ToggleButton button = (ToggleButton) node;
 			client.setStepAndBroadcast(0, i, button.isSelected());
 		}
-		
-	    System.out.println("Button was presssed");
 	}
 
 	@FXML
 	private void handleSyncClick() {
 		client.sync();
+	}
+
+	@Override
+	public void updateDrumSet() {
+		DrumSet drumSet = this.client.drumSet;
+		//for (DrumTrack track : drumSet.tracks) {
+			for (int i = 0; i < drumSet.tracks.get(0).getSteps().size(); i++) {
+				Node node = panelGrid.getChildren().get(i);
+			    ToggleButton toggleButton = (ToggleButton) node;
+				TimeStep timeStep = drumSet.tracks.get(0).getSteps().get(i);
+				toggleButton.setSelected(timeStep.isSet);
+			}
+		//}
 	}
 }
