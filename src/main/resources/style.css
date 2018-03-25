@@ -1,5 +1,18 @@
+
+.panelMain{
+	-fx-background-color: #c6c6c2;
+}
+
+.header {
+	-fx-background-color: #abb3ba;
+}
+
+.labelPanel{
+	-fx-background-color: #abb3ba;
+}
+
 .button1 {
-    -fx-background-color: #aaa8a7;
+    -fx-background-color: #0b5ce0;
     -fx-border-color:black;
     -fx-border-width: 1;
     -fx-border-style: solid;
@@ -8,11 +21,11 @@
 }
 
 .button1:selected {
-    -fx-background-color: #e8ca0d;
+    -fx-background-color: #ffa900;
 }
 
 .button2 {
-    -fx-background-color: #444338;
+    -fx-background-color: #0a3d91;
     -fx-border-color:black;
     -fx-border-width: 1;
     -fx-border-style: solid;
@@ -21,9 +34,5 @@
 }
 
 .button2:selected {
-    -fx-background-color: #e8ca0d;
-}
-
-.panelMain{
-	-fx-background-color: #c6c6c2;
+    -fx-background-color: #db9202;
 }
