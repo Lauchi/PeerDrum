@@ -78,15 +78,15 @@
                                     <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" />
                                     <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="1" />
                                     <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="2" />
+                                    <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="3" />
+                                    <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="4" />
+                                    <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="5" />
+                                    <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="6" />
+                                    <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="7" />
                                     <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="8" />
                                     <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="9" />
-                                    <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="6" />
                                     <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="10" />
-                                    <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="3" />
-                                    <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="5" />
-                                    <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="7" />
                                     <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button1" GridPane.columnIndex="11" />
-                                    <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="4" />
                                     <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="12" />
                                     <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="13" />
                                     <ToggleButton mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="14" />
