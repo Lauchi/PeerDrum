@@ -21,7 +21,7 @@ public class PeerDrumClient implements TimerListener {
 
     BufferedReader in;
     PrintWriter out;
-    public JFrame frame = new JFrame("Chatter");
+    public JFrame frame = new JFrame("Peerdrum");
     JButton button = new JButton("Send");
     JButton buttonSync = new JButton("Sync");
     JTextArea messageArea = new JTextArea(8, 40);
