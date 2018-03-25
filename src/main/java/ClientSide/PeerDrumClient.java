@@ -53,6 +53,7 @@ public class PeerDrumClient extends Thread implements TimerListener {
 
     public void sync() {
         if (_isMaster) out.println("START");
+        this.broadCastDrumSet();
     }
 
     @Override
@@ -69,7 +70,6 @@ public class PeerDrumClient extends Thread implements TimerListener {
                     if (line.startsWith("DRUMSET ")) {
                         this.drumSet = objectMapper.readValue(line.substring(8), DrumSet.class);
                     } else if (line.startsWith("START")) {
-                        System.out.println("Start");
                         this.timer.resetStartTime();
                     }
                 }
