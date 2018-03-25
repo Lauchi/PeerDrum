@@ -58,9 +58,8 @@ public class PeerDrumClient extends Thread implements TimerListener {
     @Override
     public void run() {
         String serverAddress = this.serverIp;
-        Socket socket = null;
         try {
-            socket = new Socket(serverAddress, this.serverPort);
+            Socket socket = new Socket(serverAddress, this.serverPort);
             in = new BufferedReader(new InputStreamReader(
                     socket.getInputStream()));
             out = new PrintWriter(socket.getOutputStream(), true);
@@ -83,9 +82,9 @@ public class PeerDrumClient extends Thread implements TimerListener {
 
     @Override
     public void tick(int timer) {
-        System.out.println("TICK");
         for (int i = 0; i < drumSet.tracks.size(); i++) {
             TimeStep timeStep = drumSet.tracks.get(i).getSteps().get(timer);
+            System.out.println("TICK " + timer + " " +  i + " " +  timeStep.isSet);
             midiSender.Send(timeStep, i);
         }
     }
