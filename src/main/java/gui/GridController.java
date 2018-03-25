@@ -34,7 +34,10 @@ public class GridController implements DrumSetListener {
 	public void handlePanelClick(ActionEvent e) {
 		ToggleButton button = (ToggleButton) e.getSource();
 		String buttonId = button.idProperty().getValue();
-		client.setStepAndBroadcast(0, Integer.parseInt(buttonId), button.isSelected());
+		int buttonIdParsed = Integer.parseInt(buttonId);
+		int stepNo = buttonIdParsed % 16;
+		int channelNo = buttonIdParsed / 16;
+		client.setStepAndBroadcast(channelNo, stepNo, button.isSelected());
 	}
 
 	@FXML
@@ -45,13 +48,13 @@ public class GridController implements DrumSetListener {
 	@Override
 	public void updateDrumSet() {
 		DrumSet drumSet = this.client.drumSet;
-		//for (DrumTrack track : drumSet.tracks) {
-			for (int i = 0; i < drumSet.tracks.get(0).getSteps().size(); i++) {
-				Node node = panelGrid.getChildren().get(i);
+		for (int outer = 0; outer < drumSet.tracks.size(); outer++) {
+			for (int inner = 0; inner < drumSet.tracks.get(outer) .getSteps().size(); inner++) {
+				Node node = panelGrid.getChildren().get(inner + outer * 16);
 			    ToggleButton toggleButton = (ToggleButton) node;
-				TimeStep timeStep = drumSet.tracks.get(0).getSteps().get(i);
+				TimeStep timeStep = drumSet.tracks.get(outer).getSteps().get(inner);
 				toggleButton.setSelected(timeStep.isSet);
 			}
-		//}
+		}
 	}
 }

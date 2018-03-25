@@ -41,8 +41,8 @@ public class PeerDrumClient extends Thread implements TimerListener{
         timer.start();
     }
 
-    public void setStepAndBroadcast(int noteNo, int stepNo, boolean isSet) {
-        drumSet.setStep(noteNo, stepNo, isSet);
+    public void setStepAndBroadcast(int channelNo, int stepNo, boolean isSet) {
+        drumSet.setStep(channelNo, stepNo, isSet);
         this.broadCastDrumSet();
     }
 
@@ -94,7 +94,6 @@ public class PeerDrumClient extends Thread implements TimerListener{
     public void tick(int timer) {
         for (int i = 0; i < drumSet.tracks.size(); i++) {
             TimeStep timeStep = drumSet.tracks.get(i).getSteps().get(timer);
-            System.out.println("TICK " + timer + " " +  i + " " +  timeStep.isSet);
             midiSender.Send(timeStep, i);
         }
     }
