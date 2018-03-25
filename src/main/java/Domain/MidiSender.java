@@ -22,9 +22,12 @@ public class MidiSender {
             ShortMessage messageOff = new ShortMessage(ShortMessage.NOTE_OFF, 1, stepNo + 40, 100);
             receiver.send(message, -1);
 
-
-            NoteOffThread noteOffThread = new NoteOffThread(messageOff, receiver);
-            noteOffThread.start();
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            receiver.send(messageOff, -1);
 
         } catch (Exception e) {
             e.printStackTrace();
