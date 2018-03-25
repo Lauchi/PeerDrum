@@ -21,7 +21,7 @@ public class GridController {
      */
     @FXML
     private void initialize() {
-		client = new PeerDrumClient("127.0.0.1", 9001, false, 30);
+		client = new PeerDrumClient("127.0.0.1", 9001, false, 128);
 		client.start();
 	}
     

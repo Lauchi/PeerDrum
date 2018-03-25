@@ -84,9 +84,9 @@ public class PeerDrumClient extends Thread implements TimerListener {
     @Override
     public void tick(int timer) {
         System.out.println("TICK");
-        for (DrumTrack drumTrack : this.drumSet.tracks) {
-            TimeStep timeStep = drumTrack.getSteps().get(timer);
-            midiSender.Send(timeStep);
+        for (int i = 0; i < drumSet.tracks.size(); i++) {
+            TimeStep timeStep = drumSet.tracks.get(i).getSteps().get(timer);
+            midiSender.Send(timeStep, i);
         }
     }
 }
