@@ -7,7 +7,9 @@ public class MidiSender {
         if (timeStep.isSet) {
             try (Receiver receiver = MidiSystem.getReceiver()) {
                 ShortMessage message = new ShortMessage(ShortMessage.NOTE_ON, 0, 0, 100);
+                ShortMessage messageOff = new ShortMessage(ShortMessage.NOTE_OFF, 0, 0, 100);
                 receiver.send(message, -1);
+                receiver.send(messageOff, -1);
             } catch (Exception e) {
                 e.printStackTrace();
             }
