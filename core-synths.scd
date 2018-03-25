@@ -12,7 +12,7 @@ s.waitForBoot
 (
 {
 	//read samples
-	PathName.new("/Users/limb/Documents/noha/peer-drum/samples/808").entries
+	PathName.new("/Users/simonheiss/IdeaProjects/PeerDrum/samples/808").entries
 	.do
 	(
 		{
