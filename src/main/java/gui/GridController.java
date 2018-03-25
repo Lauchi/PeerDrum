@@ -2,9 +2,8 @@ package gui;
 
 import ClientSide.PeerDrumClient;
 import Domain.DrumSet;
-import Domain.DrumTrack;
 import Domain.TimeStep;
-import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.ToggleButton;
@@ -32,14 +31,10 @@ public class GridController implements DrumSetListener {
 	 * Called when the user clicks a panel.
 	 */
 	@FXML
-	private void handlePanelClick() {
-		ObservableList<Node> childlist = panelGrid.getChildren();
-
-		for (int i = 0; i < childlist.size(); i++) {
-			Node node = childlist.get(i);
-			ToggleButton button = (ToggleButton) node;
-			client.setStepAndBroadcast(0, i, button.isSelected());
-		}
+	public void handlePanelClick(ActionEvent e) {
+		ToggleButton button = (ToggleButton) e.getSource();
+		String buttonId = button.idProperty().getValue();
+		client.setStepAndBroadcast(0, Integer.parseInt(buttonId), button.isSelected());
 	}
 
 	@FXML
