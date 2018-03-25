@@ -27,17 +27,17 @@ public class PeerDrumClient implements TimerListener {
     JTextArea messageArea = new JTextArea(8, 40);
     private String serverIp;
     private int serverPort;
-    private boolean isMaster;
+    private boolean _isMaster;
     private long bpm;
     DrumSet drumSet = new DrumSet();
     ObjectMapper objectMapper = new ObjectMapper();
     DrumTimer timer;
     private MidiSender midiSender;
 
-    public PeerDrumClient(String serverIp, int serverPort, boolean isMaster, long bpm) {
+    public PeerDrumClient(String serverIp, int serverPort, final boolean isMaster, long bpm) {
         this.serverIp = serverIp;
         this.serverPort = serverPort;
-        this.isMaster = isMaster;
+        this._isMaster = isMaster;
         this.bpm = bpm;
         this.timer = new DrumTimer(this.bpm);
         this.midiSender = new MidiSender();
@@ -62,7 +62,7 @@ public class PeerDrumClient implements TimerListener {
 
         buttonSync.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                out.println("START");
+                if (_isMaster) out.println("START");
             }
         });
 
@@ -79,12 +79,14 @@ public class PeerDrumClient implements TimerListener {
 
         while (true) {
             String line = in.readLine();
-            if (line.startsWith("MESSAGE")) {
-                messageArea.append(line.substring(8) + "\n");
-                this.drumSet = objectMapper.readValue(line.substring(8), DrumSet.class);
-            } else if (line.startsWith("START")) {
-                messageArea.append(line + "\n");
-                if (!this.isMaster) this.timer.resetStartTime();
+            if (line != null) {
+                if (line.startsWith("DRUMSET ")) {
+                    messageArea.append(line.substring(8) + "\n");
+                    this.drumSet = objectMapper.readValue(line.substring(8), DrumSet.class);
+                } else if (line.startsWith("START")) {
+                    messageArea.append(line + "\n");
+                    this.timer.resetStartTime();
+                }
             }
         }
     }

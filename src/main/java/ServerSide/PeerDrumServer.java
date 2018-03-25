@@ -44,7 +44,7 @@ public class PeerDrumServer {
 					}
 
 					for (PrintWriter writer : writers) {
-						writer.println("MESSAGE " + input);
+						writer.println("DRUMSET " + input);
 					}
 				}
 			} catch (IOException e) {
