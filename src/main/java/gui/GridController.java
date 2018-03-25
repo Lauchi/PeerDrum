@@ -32,8 +32,6 @@ public class GridController {
 	private void handlePanelClick() {
 		ObservableList<Node> childlist = panelGrid.getChildren();
 
-
-		
 		for (Node node : childlist) {
 			ToggleButton button = (ToggleButton) node;
 			System.out.print(button.isSelected() + " ");
