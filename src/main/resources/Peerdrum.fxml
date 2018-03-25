@@ -169,7 +169,7 @@
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -188,23 +188,23 @@
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
-                                                <Button fx:id="48" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="0" GridPane.rowSpan="3" />
-                                                <Button fx:id="49" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="1" GridPane.rowSpan="2" />
-                                                <Button fx:id="50" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="2" GridPane.rowSpan="3" />
-                                                <Button fx:id="51" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="3" GridPane.rowSpan="2" />
-                                                <Button fx:id="52" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button3" GridPane.columnIndex="4" GridPane.rowSpan="3" />
-                                                <Button fx:id="53" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="5" GridPane.rowSpan="3" />
-                                                <Button fx:id="54" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="6" GridPane.rowSpan="2" />
-                                                <Button fx:id="55" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="7" GridPane.rowSpan="3" />
-                                                <Button fx:id="56" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="8" GridPane.rowSpan="2" />
-                                                <Button fx:id="57" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="9" GridPane.rowSpan="3" />
-                                                <Button fx:id="58" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="10" GridPane.rowSpan="2" />
-                                                <Button fx:id="59" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="11" GridPane.rowSpan="3" />
-                                                <Button fx:id="60" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="12" GridPane.rowSpan="3" />
-                                                <Button fx:id="61" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="13" GridPane.rowSpan="2" />
-                                                <Button fx:id="62" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="14" GridPane.rowSpan="3" />
-                                                <Button fx:id="63" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="15" GridPane.rowSpan="2" />
-                                                <Button fx:id="64" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="16" GridPane.rowSpan="3" />
+                                                <Button id="48" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="0" GridPane.rowSpan="3" />
+                                                <Button id="49" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="1" GridPane.rowSpan="2" />
+                                                <Button id="50" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="2" GridPane.rowSpan="3" />
+                                                <Button id="51" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="3" GridPane.rowSpan="2" />
+                                                <Button id="52" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button3" GridPane.columnIndex="4" GridPane.rowSpan="3" />
+                                                <Button id="53" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="5" GridPane.rowSpan="3" />
+                                                <Button id="54" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="6" GridPane.rowSpan="2" />
+                                                <Button id="55" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="7" GridPane.rowSpan="3" />
+                                                <Button id="56" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="8" GridPane.rowSpan="2" />
+                                                <Button id="57" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="9" GridPane.rowSpan="3" />
+                                                <Button id="58" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="10" GridPane.rowSpan="2" />
+                                                <Button id="59" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="11" GridPane.rowSpan="3" />
+                                                <Button id="60" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="12" GridPane.rowSpan="3" />
+                                                <Button id="61" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="13" GridPane.rowSpan="2" />
+                                                <Button id="62" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="14" GridPane.rowSpan="3" />
+                                                <Button id="63" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="241.0" prefWidth="199.0" styleClass="button4" GridPane.columnIndex="15" GridPane.rowSpan="2" />
+                                                <Button id="64" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="165.0" prefWidth="209.0" styleClass="button3" GridPane.columnIndex="16" GridPane.rowSpan="3" />
                                              </children>
                                           </GridPane>
                                        </children>

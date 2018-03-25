@@ -43,15 +43,16 @@ public class PeerDrumServer {
 						return;
 					}
 
-					if (input.startsWith("DRUMSET ")) {
-					for (PrintWriter writer : writers) {
-							writer.println("DRUMSET " + input);
-						}
-					}
-					else if (input.startsWith("SINGLE_NOTE ")) {
+
+					if (input.startsWith("SINGLE_NOTE ")) {
 						for (PrintWriter writer : writers) {
 							writer.println(input);
 						}
+						return;
+					}
+
+					for (PrintWriter writer : writers) {
+						writer.println("DRUMSET " + input);
 					}
 				}
 			} catch (IOException e) {
