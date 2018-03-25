@@ -38,6 +38,10 @@ public class PeerDrumClient extends Thread implements TimerListener {
         timer.start();
     }
 
+    public void setStep(int step, boolean isSet) {
+        drumSet.setStep(step, isSet);
+    }
+
     public void sendDrumSet(DrumSet drumSet) {
         try {
             String json = objectMapper.writeValueAsString(drumSet);

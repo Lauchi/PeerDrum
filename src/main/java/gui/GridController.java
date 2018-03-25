@@ -32,9 +32,11 @@ public class GridController {
 	private void handlePanelClick() {
 		ObservableList<Node> childlist = panelGrid.getChildren();
 
-		for (Node node : childlist) {
+		for (int i = 0; i < childlist.size(); i++) {
+			Node node = childlist.get(i);
 			ToggleButton button = (ToggleButton) node;
 			System.out.print(button.isSelected() + " ");
+			client.setStep(i, button.isSelected());
 		}
 		
 	    System.out.println("Button was presssed");

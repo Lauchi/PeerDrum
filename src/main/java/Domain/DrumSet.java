@@ -13,4 +13,8 @@ public class DrumSet {
         tracks.add(new DrumTrack());
         tracks.add(new DrumTrack());
     }
+
+    public void setStep(int step, boolean isSet) {
+        tracks.get(0).toggleStep(step);
+    }
 }
