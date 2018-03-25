@@ -21,7 +21,6 @@ public class PeerDrumClient extends Thread implements TimerListener{
     PrintWriter out;
     private String serverIp;
     private int serverPort;
-    private boolean _isMaster;
     private long bpm;
     public DrumSet drumSet = new DrumSet();
     ObjectMapper objectMapper = new ObjectMapper();
@@ -29,10 +28,9 @@ public class PeerDrumClient extends Thread implements TimerListener{
     private MidiSender midiSender;
     private List<DrumSetListener>listeners = new ArrayList<>();
 
-    public PeerDrumClient(String serverIp, int serverPort, final boolean isMaster, long bpm) {
+    public PeerDrumClient(String serverIp, int serverPort, long bpm) {
         this.serverIp = serverIp;
         this.serverPort = serverPort;
-        this._isMaster = isMaster;
         this.bpm = bpm;
         this.timer = new DrumTimer(this.bpm);
         this.midiSender = new MidiSender();
@@ -98,5 +96,7 @@ public class PeerDrumClient extends Thread implements TimerListener{
         }
     }
 
-
+    public void sendNote(int stepNo) {
+        midiSender.sendNote(stepNo);
+    }
 }

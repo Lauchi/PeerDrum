@@ -22,7 +22,7 @@ public class GridController implements DrumSetListener {
      */
     @FXML
     private void initialize() {
-		client = new PeerDrumClient("127.0.0.1", 9001, false, 128);
+		client = new PeerDrumClient("127.0.0.1", 9001, 128);
 		client.start();
 		client.addListener(this);
 	}
@@ -40,11 +40,6 @@ public class GridController implements DrumSetListener {
 		client.setStepAndBroadcast(channelNo, stepNo, button.isSelected());
 	}
 
-	@FXML
-	private void handleSyncClick() {
-		client.sync();
-	}
-
 	@Override
 	public void updateDrumSet() {
 		DrumSet drumSet = this.client.drumSet;
@@ -56,5 +51,13 @@ public class GridController implements DrumSetListener {
 				toggleButton.setSelected(timeStep.isSet);
 			}
 		}
+	}
+	@FXML
+	public void handleNoteClick(ActionEvent actionEvent) {
+		ToggleButton button = (ToggleButton) actionEvent.getSource();
+		String buttonId = button.idProperty().getValue();
+		int buttonIdParsed = Integer.parseInt(buttonId);
+		int stepNo = buttonIdParsed % 16;
+		client.sendNote(stepNo);
 	}
 }

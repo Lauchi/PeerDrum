@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1250.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GridController">
+<AnchorPane prefHeight="600.0" prefWidth="1250.0" stylesheets="style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GridController">
    <children>
       <SplitPane dividerPositions="0.21237458193979933" layoutX="237.0" layoutY="113.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -22,13 +22,7 @@
                       <RowConstraints maxHeight="56.968910217285156" minHeight="10.0" prefHeight="45.64896011352539" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="77.35103988647461" minHeight="10.0" prefHeight="77.35103988647461" vgrow="SOMETIMES" />
                     </rowConstraints>
-                     <children>
-                        <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="131.0" text="Syncasd" />
-                        <Button mnemonicParsing="false" onAction="#handleSyncClick" prefHeight="87.0" prefWidth="131.0" text="Sync" />
-                        <ChoiceBox prefHeight="62.0" prefWidth="198.0" GridPane.columnIndex="4" />
-                        <ChoiceBox prefHeight="62.0" prefWidth="198.0" GridPane.columnIndex="3" />
-                        <ChoiceBox prefHeight="62.0" prefWidth="198.0" GridPane.columnIndex="2" />
-                     </children>
+
                   </GridPane>
                </children>
             </AnchorPane>
@@ -161,6 +155,24 @@
                                     <ToggleButton id="61" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="13" GridPane.rowIndex="3" />
                                     <ToggleButton id="62" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="14" GridPane.rowIndex="3" />
                                     <ToggleButton id="63" mnemonicParsing="false" onAction="#handlePanelClick" prefHeight="114.0" prefWidth="103.0" styleClass="button2" GridPane.columnIndex="15" GridPane.rowIndex="3" />
+
+
+                                    <ToggleButton id="48" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                    <ToggleButton id="49" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <ToggleButton id="50" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                    <ToggleButton id="51" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                    <ToggleButton id="52" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                                    <ToggleButton id="53" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                                    <ToggleButton id="54" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+                                    <ToggleButton id="55" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                                    <ToggleButton id="56" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+                                    <ToggleButton id="57" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="9" GridPane.rowIndex="4" />
+                                    <ToggleButton id="58" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="10" GridPane.rowIndex="4" />
+                                    <ToggleButton id="59" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="11" GridPane.rowIndex="4" />
+                                    <ToggleButton id="60" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="12" GridPane.rowIndex="4" />
+                                    <ToggleButton id="61" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="13" GridPane.rowIndex="4" />
+                                    <ToggleButton id="62" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="14" GridPane.rowIndex="4" />
+                                    <ToggleButton id="63" mnemonicParsing="false" onAction="#handleNoteClick" prefHeight="114.0" prefWidth="103.0" styleClass="button3" GridPane.columnIndex="15" GridPane.rowIndex="4" />
 
                                  </children>
                               </GridPane>
