@@ -22,7 +22,8 @@
                       <RowConstraints maxHeight="77.35103988647461" minHeight="10.0" prefHeight="77.35103988647461" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="131.0" text="Start" />
+                        <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="131.0" text="Syncasd"/>
+                        <Button mnemonicParsing="false" prefHeight="87.0" prefWidth="131.0" text="Sync" onAction="#handleSyncClick" />
                         <ChoiceBox prefHeight="62.0" prefWidth="198.0" GridPane.columnIndex="4" />
                         <ChoiceBox prefHeight="62.0" prefWidth="198.0" GridPane.columnIndex="3" />
                         <ChoiceBox prefHeight="62.0" prefWidth="198.0" GridPane.columnIndex="2" />
