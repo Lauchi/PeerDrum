@@ -38,8 +38,8 @@ public class PeerDrumClient extends Thread implements TimerListener {
         timer.start();
     }
 
-    public void setStep(int step, boolean isSet) {
-        drumSet.setStep(step, isSet);
+    public void setStep(int noteNo, int stepNo, boolean isSet) {
+        drumSet.setStep(noteNo, stepNo, isSet);
     }
 
     public void sendDrumSet(DrumSet drumSet) {

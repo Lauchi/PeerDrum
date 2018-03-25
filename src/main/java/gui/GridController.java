@@ -35,8 +35,8 @@ public class GridController {
 		for (int i = 0; i < childlist.size(); i++) {
 			Node node = childlist.get(i);
 			ToggleButton button = (ToggleButton) node;
-			System.out.print(button.isSelected() + " ");
-			client.setStep(i, button.isSelected());
+			//System.out.print(button.isSelected() + " ");
+			client.setStep(0, i, button.isSelected());
 		}
 		
 	    System.out.println("Button was presssed");

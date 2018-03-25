@@ -14,7 +14,7 @@ public class DrumSet {
         tracks.add(new DrumTrack());
     }
 
-    public void setStep(int stepNo, boolean isSet) {
-        tracks.get(0).setStep(stepNo, isSet);
+    public void setStep(int noteNo, int stepNo, boolean isSet) {
+        tracks.get(noteNo).setStep(stepNo, isSet);
     }
 }
