@@ -17,15 +17,7 @@ public class MidiSender {
     }
 
     public void sendNote(int stepNo) {
-        try (Receiver receiver = MidiSystem.getReceiver()) {
-            ShortMessage message = new ShortMessage(ShortMessage.NOTE_ON, 1, stepNo + 40, 100);
-            ShortMessage messageOff = new ShortMessage(ShortMessage.NOTE_OFF, 1, stepNo + 40, 100);
-            receiver.send(message, -1);
-            Thread.sleep(200);
-            receiver.send(messageOff, -1);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        SendNoteThread sendNoteThread = new SendNoteThread(stepNo);
+        sendNoteThread.start();
     }
 }
