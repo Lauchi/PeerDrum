@@ -21,12 +21,7 @@ public class MidiSender {
             ShortMessage message = new ShortMessage(ShortMessage.NOTE_ON, 1, stepNo + 40, 100);
             ShortMessage messageOff = new ShortMessage(ShortMessage.NOTE_OFF, 1, stepNo + 40, 100);
             receiver.send(message, -1);
-
-            try {
-                Thread.sleep(200);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            Thread.sleep(200);
             receiver.send(messageOff, -1);
 
         } catch (Exception e) {
