@@ -17,7 +17,7 @@ public class DrumTrack {
         return steps;
     }
 
-    public void toggleStep(int stepNo) {
-        this.steps.get(stepNo).isSet = !this.steps.get(stepNo).isSet;
+    public void setStep(int stepNo, boolean isSet) {
+        this.steps.get(stepNo).isSet = isSet;
     }
 }
