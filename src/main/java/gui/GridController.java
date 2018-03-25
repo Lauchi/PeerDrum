@@ -2,7 +2,6 @@ package gui;
 
 import ClientSide.PeerDrumClient;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.ToggleButton;
@@ -35,8 +34,7 @@ public class GridController {
 		for (int i = 0; i < childlist.size(); i++) {
 			Node node = childlist.get(i);
 			ToggleButton button = (ToggleButton) node;
-			//System.out.print(button.isSelected() + " ");
-			client.setStep(0, i, button.isSelected());
+			client.setStepAndBroadcast(0, i, button.isSelected());
 		}
 		
 	    System.out.println("Button was presssed");

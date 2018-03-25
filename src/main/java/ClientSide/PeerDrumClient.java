@@ -1,7 +1,6 @@
 package ClientSide;
 
 import Domain.DrumSet;
-import Domain.DrumTrack;
 import Domain.MidiSender;
 import Domain.TimeStep;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -38,11 +37,12 @@ public class PeerDrumClient extends Thread implements TimerListener {
         timer.start();
     }
 
-    public void setStep(int noteNo, int stepNo, boolean isSet) {
+    public void setStepAndBroadcast(int noteNo, int stepNo, boolean isSet) {
         drumSet.setStep(noteNo, stepNo, isSet);
+        this.broadCastDrumSet();
     }
 
-    public void sendDrumSet(DrumSet drumSet) {
+    private void broadCastDrumSet() {
         try {
             String json = objectMapper.writeValueAsString(drumSet);
             out.println(json);
@@ -60,8 +60,7 @@ public class PeerDrumClient extends Thread implements TimerListener {
         String serverAddress = this.serverIp;
         try {
             Socket socket = new Socket(serverAddress, this.serverPort);
-            in = new BufferedReader(new InputStreamReader(
-                    socket.getInputStream()));
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             out = new PrintWriter(socket.getOutputStream(), true);
 
             while (true) {
