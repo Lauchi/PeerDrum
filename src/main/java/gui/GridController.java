@@ -6,6 +6,7 @@ import Domain.TimeStep;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.GridPane;
 
@@ -54,7 +55,7 @@ public class GridController implements DrumSetListener {
 	}
 	@FXML
 	public void handleNoteClick(ActionEvent actionEvent) {
-		ToggleButton button = (ToggleButton) actionEvent.getSource();
+		Button button = (Button) actionEvent.getSource();
 		String buttonId = button.idProperty().getValue();
 		int buttonIdParsed = Integer.parseInt(buttonId);
 		int stepNo = buttonIdParsed % 16;

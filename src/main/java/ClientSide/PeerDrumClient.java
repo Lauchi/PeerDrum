@@ -80,6 +80,10 @@ public class PeerDrumClient extends Thread implements TimerListener{
                         }
                     } else if (line.startsWith("START")) {
                         this.timer.resetStartTime();
+                    } else if (line.startsWith("SINGLE_NOTE ")) {
+                        String single_note_ = line.replace("SINGLE_NOTE ", "");
+                        Integer.parseInt(single_note_);
+                        this.timer.resetStartTime();
                     }
                 }
             }
@@ -97,6 +101,7 @@ public class PeerDrumClient extends Thread implements TimerListener{
     }
 
     public void sendNote(int stepNo) {
+        out.println("SINGLE_NOTE " + stepNo);
         midiSender.sendNote(stepNo);
     }
 }
