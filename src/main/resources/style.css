@@ -23,6 +23,22 @@
 	-fx-background-radius: 10 10 10 10;
 }
 
+.labeButton2 {
+	-fx-background-color: #c6c6c2;
+	-fx-font: 16px "Serif";
+	-fx-text-fill:#c6c6c2;
+	-fx-border-radius: 0 0 0 0;
+	-fx-background-radius: 0 0 0 0;
+}
+
+.labeButton2active {	
+	-fx-background-color: #333333;
+	-fx-font: 16px "Serif";
+	-fx-text-fill:#ffffff;
+	-fx-border-radius: 0 0 0 0;
+	-fx-background-radius: 0 0 0 0;
+}
+
 .button1 {
     -fx-background-color: #0b5ce0;
     -fx-border-color:black;
